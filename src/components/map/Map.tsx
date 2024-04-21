@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
@@ -42,10 +41,16 @@ export default function DashMap() {
   });
 
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        map.current?.resize();
+    const handleResize = () => {
+      if (map.current) {
+        map.current.resize();
       }
+    };
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach(() => {
+        handleResize();
+      });
     });
 
     if (mapContainer.current) {
@@ -57,7 +62,7 @@ export default function DashMap() {
         resizeObserver.unobserve(mapContainer.current);
       }
     };
-  }, []);
+  }, [map.current, mapContainer.current]);
 
   return <div ref={mapContainer} className="h-full w-full" />;
 }
