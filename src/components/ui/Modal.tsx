@@ -4,7 +4,7 @@ export default function Modal({
   trigger,
   children,
 }: {
-  trigger: any;
+  trigger: string;
   children: React.ReactNode;
 }) {
   const [displayModal, setDisplayModal] = useState(false);

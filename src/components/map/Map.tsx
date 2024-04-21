@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 
@@ -14,9 +15,6 @@ if (typeof accessToken === "string") {
 export default function DashMap() {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [lng, setLng] = useState<number>(-70.9);
-  const [lat, setLat] = useState<number>(42.35);
-  const [zoom, setZoom] = useState<number>(9);
 
   useEffect(() => {
     if (map.current || !mapContainer.current) return;
@@ -24,8 +22,8 @@ export default function DashMap() {
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
       attributionControl: false,
-      center: [lng, lat],
-      zoom: zoom,
+      center: [-70.9, 42.35],
+      zoom: 9,
     });
     map.current.addControl(
       new mapboxgl.FullscreenControl({
@@ -45,7 +43,7 @@ export default function DashMap() {
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         map.current?.resize();
       }
     });
