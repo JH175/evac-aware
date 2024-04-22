@@ -16,13 +16,12 @@ const mockAlerts = [
 
 export default function Nav() {
   return (
-    <div className="p-10 bg-[#00000099] flex justify-between">
+    <div className="p-5 bg-[#000000dd] flex justify-between">
       <div>
         <h1 className="text-2xl">Evac Aware</h1>
       </div>
       <div className="flex flex-col items-center">
         <p>Savannah, GA 31322</p>
-
         <button>Change Location</button>
       </div>
       <div className="md:flex gap-5">

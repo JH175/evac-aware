@@ -19,7 +19,7 @@ export default function DashMap() {
     if (map.current || !mapContainer.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v12",
+      style: "mapbox://styles/mapbox/dark-v11",
       attributionControl: false,
       center: [-70.9, 42.35],
       zoom: 9,

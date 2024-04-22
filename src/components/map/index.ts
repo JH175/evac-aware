@@ -1,3 +1,4 @@
 import Map from "./Map";
+import MapToggles from "./MapToggles";
 
-export { Map };
+export { Map, MapToggles };
